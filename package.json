@@ -1,0 +1,42 @@
+{
+  "name": "@novalutions/spfx-license-check",
+  "version": "0.1.0",
+  "description": "License check for novalutions SharePoint Framework products: license status from the novalutions licensing service with cache, outage tolerance and the lock decision.",
+  "keywords": [
+    "spfx",
+    "sharepoint-framework",
+    "license",
+    "novalutions"
+  ],
+  "homepage": "https://github.com/novalutions/spfx-license-check#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/novalutions/spfx-license-check.git"
+  },
+  "license": "MIT",
+  "author": "novalutions",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "rimraf lib && tsc -p tsconfig.json && es-check es5 \"lib/**/*.js\"",
+    "build:es5-test": "rimraf temp/es5 && tsc -p tsconfig.es5-test.json",
+    "typecheck": "tsc -p tsconfig.test.json",
+    "test": "npm run build:es5-test && vitest run",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "@microsoft/sp-http": "^1.18.0"
+  },
+  "devDependencies": {
+    "@microsoft/sp-http": "^1.24.1",
+    "@microsoft/sp-page-context": "^1.24.1",
+    "es-check": "^9.8.1",
+    "rimraf": "^6.1.4",
+    "typescript": "~5.8.3",
+    "vitest": "^5.1.0"
+  }
+}
